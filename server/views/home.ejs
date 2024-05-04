@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-gray-700 text-white">
+  <div class="">
+    <div class="text-3xl font-bold bg-gray-800 p-4 font-serif flex justify-between">
+      <p>HomePage</p>
+
+
+      <div class="relative inline-block text-left mr-8">
+        <div>
+          <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-bold uppercase text-gray-900 shadow-sm border-black hover:bg-gray-200" onclick="hideShow()">
+            <%= user.name %>
+            <i class="fa-solid fa-angle-down mt-1 ml-2"></i>
+          </button>
+        </div>
+        <div id="menu" class="hidden absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div class="py-1" role="none">
+            <div href="#" class="text-gray-700 block px-4 py-2 text-sm">
+              <div>Signed in as : <%= user.name %></div>
+
+              <% if (user.role === "ADMIN") { %>
+              <div class="mt-2">Role : <%= user.role %></div>
+              <% } %>
+            </div>
+            <hr class="h-0.5 border-t-0 bg-gray-300 opacity-100 dark:opacity-50" />
+            <form action="/logOut" class="h-fit mb-0">
+              <button type="submit" class="text-gray-700 block w-full px-4 py-2 text-left text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-3">
+                Sign out
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="mx-8 my-4 flex flex-col gap-4">
+      <li>
+        <a href="/scanner" class="underline">Scanner</a>
+      </li>
+      <% if (user.role === "ADMIN") { %>
+      <li>
+        <a href="/register" class="underline">Register</a>
+      </li>
+      <li>
+        <button id="btn" class="underline">Reset</button>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", resetValues);
+
+    function resetValues() {
+      axios.patch("/reset", {}).then((res) => {
+        console.log(res);
+      });
+      showAlert();
+      setTimeout(() => {
+        document.querySelector(".alert").remove();
+      }, 2000);
+    }
+
+    function showAlert() {
+      let div = document.createElement("div");
+      div.innerHTML = '<i class="fa-solid fa-check"></i>  RESET';
+      div.classList =
+        "alert absolute top-64 left-[45%] bg-gray-800 p-3 rounded-lg";
+      div.style.top = window.scrollY + 72 + "px";
+      document.querySelector("body").append(div);
+    }
+
+    function hideShow() {
+      var x = document.getElementById("menu");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
+  
+   
+</body>
+
+</html>

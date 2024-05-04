@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-700 text-white">
+  <h1 class="text-3xl font-bold bg-gray-800 p-4 font-serif">Register</h1>
+  
+  <div class="my-8 flex flex-col justify-center items-center w-screen gap-4">
+
+    <% if (locals.msg) { %>
+
+    <p class="bg-red-900 font-bold text-md p-3 rounded-lg"><%= msg %></p>
+
+    <% } %>
+    <form action="/register" method="post" class="flex flex-col gap-2">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" class="text-black px-2 rounded" />
+      <label for="rollNo">Roll Number</label>
+      <input type="number" name="rollNo" id="rollNo" class="rounded text-black px-2" />
+      <button type="submit" class="border border-gray-900 rounded w-1/2 px-2 py-1 bg-gray-900 my-1 hover:bg-gray-800">
+        Register
+      </button>
+    </form>
+
+    <!-- <img src="<%= locals.src %> "/> -->
+    <% if (locals.src) { %>
+      <canvas id="ticket" height="260" width="800"></canvas>
+     
+    <% } %>
+
+  </div>
+
+  <script>
+    const canvas = document.getElementById("ticket");
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "#FFF6F6";
+    ctx.fillRect(40, 0, 510, 260);
+    ctx.fillStyle = "#F5F0EA";
+    ctx.fillRect(550, 0, 250, 260);
+
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, 40, 260);
+    // ctx.fillRect(760, 0, 40, 260);
+
+    ctx.fillStyle = "#F5F0EA";
+    ctx.fillRect(50, 150, 240, 60);
+
+    ctx.beginPath();
+    ctx.fillStyle = "#fff"; //red
+    ctx.arc(0, 125, 20, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = "#000"; //red
+    ctx.arc(800, 40, 20, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = "#000"; //red
+    ctx.arc(800, 100, 20, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = "#000"; //red
+    ctx.arc(800, 160, 20, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = "#000"; //red
+    ctx.arc(800, 220, 20, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = "#000"; //red
+    ctx.arc(550, 255, 25, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.fillStyle = "#000"; //red
+    ctx.arc(550, 0, 25, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.setLineDash([6, 6]); // Set the dash pattern
+    ctx.moveTo(550, 0);
+    ctx.lineTo(550, 260);
+    ctx.stroke();
+    ctx.closePath();
+    ctx.setLineDash([]);
+
+    ctx.font = "48px Antonio";
+    ctx.fillStyle = "black";
+    ctx.fillText("My name is saksham", 50, 80, 400);
+    ctx.font = "20px Martel Sans";
+    ctx.fillText("November 14, 2003", 75, 188, 400);
+    ctx.font = "16px Martel Sans";
+    ctx.fillText("Time : 4:00 PM", 340, 130, 400);
+    ctx.font = "16px Martel Sans";
+    ctx.fillText("Address : ", 340, 170, 400);
+    ctx.font = "14px Martel Sans";
+    ctx.fillText("Blah Blah Hall, blah city", 340, 200, 400);
+
+    const img = new Image();
+    img.src = `<%= locals.src %>`;
+    img.onload = () => {
+      ctx.drawImage(img, 600, 60);
+    };
+  </script>
+</body>
+
+</html>
