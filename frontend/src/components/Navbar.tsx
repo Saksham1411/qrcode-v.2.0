@@ -15,9 +15,10 @@ export function Navbar({ className }: { className?: string }) {
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
             <HoveredLink href="/interface-design">Interface Design</HoveredLink>
             <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
-        </MenuItem> */}
+        </MenuItem>
+         */}
+        <HoveredLink to="/home">Home</HoveredLink>
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="  text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem

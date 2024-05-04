@@ -44,7 +44,7 @@ const LoginPage = () => {
        {/* <div className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"> */}
         
      
-      <div className="flex flex-col gap-2 font-mono pb-4 w-1/3 border rounded-lg z-20 bg-gray-50 shadow-md shadow-white">
+      <div className="flex flex-col gap-2 font-mono pb-4 w-1/3 border rounded-lg z-20 bg-white bg-opacity-70 shadow-md shadow-white">
         <div className="flex mb-3 border-b px-4 py-3">
           <span className="text-2xl m-auto font-bold font-mono">Login</span>
         </div>

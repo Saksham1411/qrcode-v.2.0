@@ -18,12 +18,7 @@ const HomePage = () => {
         <div className="text-4xl sm:text-3xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
           {/* inner content */}
           <div className="flex gap-4">
-            <Link className="border border-neutral-200 bg-gray-200 bg-opacity-20  p-4 rounded-xl hover:bg-opacity-10">
-              Create a Event
-            </Link>
-            <Link className="border border-neutral-200 bg-gray-200 bg-opacity-20  p-4 rounded-xl hover:bg-opacity-10">
-              Already have a event
-            </Link>
+            
           </div>
         </div>
       </div>
