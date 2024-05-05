@@ -23,8 +23,8 @@ export function Navbar({ className }: { className?: string }) {
           <div className="  text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
               title="New Event"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
+              href="/home/newevent"
+              src=""
               description="Create a new Event"
             />
             <ProductItem

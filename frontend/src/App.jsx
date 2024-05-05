@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={<LoginPage/>}/>
         <Route path="/signin" element={<SignupPage/>}/>
         <Route path="/home" element={<HomePage/>}/>
+        <Route path="/home/:subPage" element={<HomePage/>}/>
       </Routes>
       <Toaster/>
     </>

@@ -28,7 +28,7 @@ app.use(cors({
 
 // app.use('/', staticRoute);
 app.use('/',userRoute);
-// app.use('/',eventRoute);
+app.use('/',eventRoute);
 // app.use('/', studentRoute);
 
 // app.use(notFound);
