@@ -8,9 +8,9 @@ import EventCard from "../components/EventCard";
 const HomePage = () => {
   const { user } = useContext(UserContext);
   const { subPage } = useParams();
-  // if (!user) {
-  //   return <Navigate to={"/"} />;
-  // }
+  if (!user) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <>
       <Navbar className="top-6 bg-transparent w-fit" />
